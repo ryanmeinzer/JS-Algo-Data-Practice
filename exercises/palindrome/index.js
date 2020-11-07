@@ -14,11 +14,17 @@ function palindrome(str) {
     // console.log(str === reversed)
 
     // solved with loop 
-    let reversed = ''
-        for (let character of str){
-            reversed = character + reversed
-        }
-        return str === reversed
+    // let reversed = ''
+    //     for (let character of str){
+    //         reversed = character + reversed
+    //     }
+    //     return str === reversed
+
+    // solved with every
+    return str.split('').every((char, i) => {
+        return char === str[str.length - i - 1]
+    })
+
 }
 
 
