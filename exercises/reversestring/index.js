@@ -18,13 +18,14 @@ function reverse(str) {
         reversed = character + reversed
         // debugger
     }
-    return reversed
+    // return reversed
+    console.log(reversed)
 
     // solved with reduce 
     //     return str.split('').reduce((reversed, character) => character + reversed, '')
 
 }
 
-// reverse('apple')
+reverse('12245')
 
 module.exports = reverse;
