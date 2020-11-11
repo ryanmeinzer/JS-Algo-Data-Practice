@@ -35,18 +35,37 @@ function capitalize(str) {
         // // END UNCOMMENT -->
     
     // Refactor
-    // create capitalized array
-    let capitalizedArray = []
-    // loop over array
-    // split each word of string by space into an array
-    for (let word of str.split(' ')) {
-        // capitalize the first letter of each word of the array
-        // push each word into capitalizedArray
-        capitalizedArray.push(word[0].toUpperCase() + word.slice(1))
+    // // <-- START UNCOMMENT
+    // // create capitalized array
+    // let capitalizedArray = []
+    // // loop over array
+    // // split each word of string by space into an array
+    // for (let word of str.split(' ')) {
+    //     // capitalize the first letter of each word of the array
+    //     // push each word into capitalizedArray
+    //     capitalizedArray.push(word[0].toUpperCase() + word.slice(1))
+    // }
+    // // join capitalized array back into a string
+    // // return joined string
+    // return capitalizedArray.join(' ')
+    // // END UNCOMMENT -->
+
+    // solved with standard loop (not ideal IMO)
+    // create an empty string 'result' with the first character capitalized
+    let result = str[0].toUpperCase()
+    // for each character in string
+    for (i = 1; i < str.length; i++) {
+        // if the character to the left is a space or the first character
+        if (str[i - 1] === ' ') {
+            // capitalize it and add to 'result'
+            result += str[i].toUpperCase()
+        // else add it to 'result'
+        } else {
+            result += str[i]
+        }
     }
-    // join capitalized array back into a string
-    // return joined string
-    return capitalizedArray.join(' ')
+    // return result
+    return result
 }
 
 module.exports = capitalize;
