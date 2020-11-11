@@ -8,6 +8,18 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+    // My USSR Method
+        // Understand
+            // reword - given two strings, determine if their characters are the same quantity
+            // inputs - only characters, ignore all else
+            // outputs - boolean
+            // examples - 'dan', 'and' --> true
+        // Sudo Chop
+            // 
+        // Solve / Skip
+        // Refactor
+
+}
 
 module.exports = anagrams;
