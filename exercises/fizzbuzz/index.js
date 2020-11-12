@@ -13,6 +13,7 @@
 //   buzz
 
 function fizzBuzz(n) {
+    // use standard loop from 1 as there isn't an array or object to for of loop over
     for (let num = 1; num <= n; num++) {
         if (num % 3 === 0 && num % 5 === 0) {
             console.log('fizzbuzz')
