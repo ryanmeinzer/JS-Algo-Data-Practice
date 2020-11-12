@@ -22,6 +22,7 @@ function maxChar(str) {
         // using boolean logic
         obj[char] = obj[char] + 1 || 1
     }
+    // loop through object (with for in, cannot use for of) to determine maxChar
     for (let char in obj) {
         // if (obj[char] > max) {
         //     max = obj[char]

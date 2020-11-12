@@ -27,6 +27,7 @@ function steps(n) {
             // '# '
             // '##'
     // Sudo Chop
+    // Solve / Skip
         // create for loop with n steps/iterations
         for (let step = 0; step < n; step++) {
             // create variable for step equal to #
@@ -44,7 +45,6 @@ function steps(n) {
             // console log each iteration interpolated with variables
             n > step + 1 ? console.log(stepStr + spaceStr) : console.log(stepStr)
         }
-    // Solve / Skip
     // Refactor
 }
 
