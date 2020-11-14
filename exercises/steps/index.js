@@ -20,32 +20,49 @@
 function steps(n) {
     // USSR
     // Understand
-        // rephrase - make n stairs deep/lines with n stairs wide
-        // input - integer
-        // output - strings
-        // examples - steps(2)
-            // '# '
-            // '##'
+    // rephrase - make n stairs deep/lines with n stairs wide
+    // input - integer
+    // output - strings
+    // examples - steps(2)
+    // '# '
+    // '##'
     // Sudo Chop
     // Solve / Skip
-        // create for loop with n steps/iterations
-        for (let step = 0; step < n; step++) {
-            // create variable for step equal to #
-            let stepStr = '#'
-            // create n '#' strings
-            if (step > 0) {
-                stepStr = stepStr.repeat(step + 1)
-            }
-            // create n - step ' ' strings
-            let spaceStr = ' '
-            if (n > step + 1) {
-                
-                spaceStr = spaceStr.repeat(n - step - 1)
-            }
-            // console log each iteration interpolated with variables
-            n > step + 1 ? console.log(stepStr + spaceStr) : console.log(stepStr)
-        }
+    for (let row = 0; row < n; row++) {
+        let stair = ''
+    }
     // Refactor
 }
+
+// function steps(n) {
+//     // USSR
+//     // Understand
+//         // rephrase - make n stairs deep/lines with n stairs wide
+//         // input - integer
+//         // output - strings
+//         // examples - steps(2)
+//             // '# '
+//             // '##'
+//     // Sudo Chop
+//     // Solve / Skip
+//         // create for loop with n steps/iterations
+//         for (let step = 0; step < n; step++) {
+//             // create variable for step equal to #
+//             let stepStr = '#'
+//             // create n '#' strings
+//             if (step > 0) {
+//                 stepStr = stepStr.repeat(step + 1)
+//             }
+//             // create n - step ' ' strings
+//             let spaceStr = ' '
+//             if (n > step + 1) {
+                
+//                 spaceStr = spaceStr.repeat(n - step - 1)
+//             }
+//             // console log each iteration interpolated with variables
+//             n > step + 1 ? console.log(stepStr + spaceStr) : console.log(stepStr)
+//         }
+//     // Refactor
+// }
 
 module.exports = steps;
