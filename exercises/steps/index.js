@@ -17,6 +17,7 @@
 //       '### '
 //       '####'
 
+// solved with nested loops
 function steps(n) {
     // USSR
     // Understand
@@ -28,10 +29,24 @@ function steps(n) {
     // '##'
     // Sudo Chop
     // Solve / Skip
+    // loop through rows from 0 to n
     for (let row = 0; row < n; row++) {
+    // create an empty string 'stair'
         let stair = ''
+    // loop through columns from 0 to n
+        for (let column = 0; column < n; column++) {
+    // if the current column is <= current row, add a # to 'stair'
+            if (column <= row) {
+                stair += '#'
+    // else add a space to 'stair'
+            } else {
+                stair += ' '
+            } 
+        }
+    // console log 'stair'
+        console.log(stair)
+    // Refactor 
     }
-    // Refactor
 }
 
 // function steps(n) {
