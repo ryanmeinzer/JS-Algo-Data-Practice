@@ -42,7 +42,7 @@
 //     return fib(n-2) + fib(n-1)
 // }
 
-// solved with memoization recursion with  time
+// solved with memoization recursion with [0(n) linear?] time
 // pass in slowFib into memoize assigned to variable
 let fib = memoize(slowFib)
 
