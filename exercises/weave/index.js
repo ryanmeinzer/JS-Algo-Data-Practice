@@ -24,6 +24,34 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+function weave(sourceOne, sourceTwo) {
+// USSR
+// Understand
+    // reword - given two queue arrays, remove their contents by alternating between until all contents are in the new array
+    // inputs - two queue arrays
+    // outputs - third queue array
+    // examples - see above
+// Sudo Chop
+    // create third queue array from class called 'q'
+    let q = new Queue()
+    // while sourceOne peek is true OR sourceTwo peek is true
+    while (sourceOne.peek() || sourceTwo.peek()) {
+        // if sourceOne peek is true
+        if (sourceOne.peek()) {
+            // remove last item from sourceOne and add it to 'q'
+            q.add(sourceOne.remove())
+        }
+        // if sourceTwo peek is true
+        if (sourceTwo.peek()) {
+            // remove last item from sourceOne and add it to 'q'
+            q.add(sourceTwo.remove())
+        }
+    }
+    // return 'q'
+    return q
+// Solve / Skip
+// Refactor
+
+}
 
 module.exports = weave;
