@@ -64,22 +64,42 @@ class LinkedList {
         this.head = this.head.next
     }
 
+    // // solved removeLast my initial way
+    // removeLast() {
+    //     if (!this.head) {
+    //         return null
+    //     }
+    //     if (!this.head.next) {
+    //         this.head = null
+    //     }
+    //     let node = this.head
+    //     let lastNode = this.getLast()
+    //     // iterate through linkedlist
+    //     while (node) {
+    //         if (node.next === lastNode) {
+    //             node.next = null
+    //         }
+    //         node = node.next
+    //     }
+    // }
+
+    // solved with sliding previous and next variables
     removeLast() {
         if (!this.head) {
-            return null
+            return
         }
-        if (this.head.next === null) {
+        if (!this.head.next) {
             this.head = null
+            return
         }
-        let node = this.head
-        let lastNode = this.getLast()
+        let previousNode = this.head
+        let node = this.head.next
         // iterate through linkedlist
-        while (node) {
-            if (node.next === lastNode) {
-                node.next = null
-            }
+        while (node.next) {
+            previousNode = node
             node = node.next
         }
+        previousNode.next = null
     }
     
 }
