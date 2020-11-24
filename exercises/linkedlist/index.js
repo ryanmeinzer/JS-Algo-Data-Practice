@@ -101,6 +101,16 @@ class LinkedList {
         }
         previousNode.next = null
     }
+
+    insertLast(data) {
+        // handle the case if there's no nodes in the LL and assign to head
+        if (!this.head) {
+            this.head = new Node(data)
+        } else {
+        let lastNode = this.getLast()
+        lastNode.next = new Node(data)
+        }
+    }
     
 }
 
