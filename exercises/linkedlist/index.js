@@ -19,6 +19,8 @@ class LinkedList {
         // pass in the existing this.head as the second argument to assign to the new head node's next argument to link them
         // update this.head to be the new head node
         this.head = new Node(data, this.head)
+        // remember that re-factoring with other methods is great and less redundant such as:
+        // this.insertAt(data, 0)
     }
 
     size() {
@@ -34,6 +36,8 @@ class LinkedList {
 
     getFirst() {
         return this.head
+        // remember that re-factoring with other methods is great and less redundant such as:
+        // return this.getAt(0)
     }
 
     getLast() {
@@ -49,6 +53,8 @@ class LinkedList {
             }
             node = node.next
         }
+        // remember that re-factoring with other methods is great and less redundant such as:
+        // return this.getAt(this.size() - 1)
     }
 
     clear() {
@@ -153,6 +159,28 @@ class LinkedList {
         previous.next = previous.next.next
     }
 
+    insertAt(data, index) {
+        if (!this.head) {
+            this.head = new Node(data)
+            // if we caught this edge case, make sure to immediately return
+            return
+        }
+        if (index === 0) {
+            // create new node with data and the next as the current this.head
+            this.head = new Node(data, this.head)
+            // if we caught this edge case, make sure to immediately return
+            return
+        }
+        // find the new previous node
+        // or if the new previous node is out of bounds (ie if this.getAt(index - 1 is falsey)), make it the last
+        let previous = this.getAt(index - 1) || this.getLast()
+        // create new node and insert with data after previous and assign next node to the previous.next node
+        let newNode = new Node(data, this.getAt(index))
+        // same as above
+        // let newNode = new Node(data, this.getAt(index))
+        // re-assign the previous' node's next node to the new Node
+        previous.next = newNode
+    }
 
 }
 
