@@ -22,7 +22,64 @@ class LinkedList {
     }
 
     size() {
-        
+        let counter = 0
+        let node = this.head
+        // iterate through linkedlist
+        while (node) {
+            counter++
+            node = node.next
+        }
+        return counter
+    }
+
+    getFirst() {
+        return this.head
+    }
+
+    getLast() {
+        // handle the case if there's no nodes in the LL
+        if (!this.head) {
+            return null
+        }
+        let node = this.head
+        // iterate through linkedlist
+        while (node) {
+            if (!node.next) {
+                return node
+            }
+            node = node.next
+        }
+    }
+
+    clear() {
+        // remove head node to remove all proceeding as the LL only knows about the head
+        this.head = null
+    }
+
+    removeFirst() {
+        // handle the case if there's no nodes in the LL
+        if (!this.head) {
+            return null
+        }
+        this.head = this.head.next
+    }
+
+    removeLast() {
+        if (!this.head) {
+            return null
+        }
+        if (this.head.next === null) {
+            this.head = null
+        }
+        let node = this.head
+        let lastNode = this.getLast()
+        // iterate through linkedlist
+        while (node) {
+            if (node.next === lastNode) {
+                node.next = null
+            }
+            node = node.next
+        }
     }
     
 }
