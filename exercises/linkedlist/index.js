@@ -111,7 +111,49 @@ class LinkedList {
         lastNode.next = new Node(data)
         }
     }
-    
+
+    getAt(index) {
+        if (this.size() < 1) {
+            return null
+        }
+        // same as above
+        // if (!this.head) {
+        //     return null
+        // }
+        let node = this.head
+        let counter = 0
+        while (node) {
+            if (index === counter) {
+                return node
+            } 
+        counter++
+        node = node.next
+        }
+        // handles index out of while loop
+        return null
+    }
+
+    removeAt(index) {
+        // if (this.size() < 1) {
+        //     return null
+        // }
+        if (!this.head) {
+            return
+        }
+        if (index === 0) {
+            this.head = this.head.next
+            return
+        }
+        // get the node before the index to update it's next pointer to the node after the index (to skip it and thus remove it)
+        let previous = this.getAt(index - 1)
+        // handle index out of bounds
+        if (!previous || !previous.next) {
+            return
+        }
+        previous.next = previous.next.next
+    }
+
+
 }
 
 module.exports = { Node, LinkedList };
