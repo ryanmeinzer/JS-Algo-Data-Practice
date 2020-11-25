@@ -182,6 +182,28 @@ class LinkedList {
         previous.next = newNode
     }
 
+    forEach(fn) {
+        let node = this.head
+        let counter = 0
+        while (node) {
+            fn(node, counter)
+            node = node.next
+            counter++
+        }
+    }
+
+    // define generator function with a key of fsymbol.iterator 
+    *[Symbol.iterator]() {
+        // take head node
+        let node = this.head
+        // iterate through linkedlist with while loop
+        while (node) {
+            // for every step along the node, yield the current node
+            yield node
+            node = node.next
+        }
+    }
+
 }
 
 module.exports = { Node, LinkedList };
