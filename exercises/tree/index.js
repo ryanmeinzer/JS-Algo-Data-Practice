@@ -16,8 +16,8 @@ class Node {
         this.children = []
     }
 
-    add(data, children){
-        this.children.push(new Node(data, children))
+    add(data){
+        this.children.push(new Node(data))
     }
 
     remove(data){
