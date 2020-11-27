@@ -51,7 +51,26 @@ function mergeSort(arr) {
 }
 
 function merge(left, right) {
-
+    // create an empty 'results' array for two merged arrays
+    let results = []
+    // while there are still elements in both 'left' and 'right' arrays
+    while (left.length && right.length) {
+        // if the first element of the left-half array is less than the first element of the right-half array
+        if (left[0] < right[0]) {
+            // remove the first element element from the left-half array and insert it into the end of 'results'
+            results.push(left.shift())
+        // else remove the first element element from the right-half array and insert it into the end of 'results'
+        } else {
+            results.push(right.shift())
+        }
+    }
+    // (exits loop) return the remaining element of either array after the 'results' with the spread operator, inserting all elements of 'results', along with all of the left and right arrays
+    return [...results, ...left, ...right]
+    // same as:
+    // return merged 'results' array
+    // results.push(...left)
+    // results.push(...right)
+    // return results
 }
 
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
