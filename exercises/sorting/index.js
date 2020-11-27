@@ -22,7 +22,28 @@ function bubbleSort(arr) {
 }
 
 function selectionSort(arr) {
-
+    // solve with nested loops
+    // for all elements i of array (outer loop)
+    for (let i = 0; i < arr.length; i++) {
+        // assume the element at i is the least in the array, so assign i to an 'indexOfMin' variable
+        let indexOfMin = i
+        // for all elements j + 1 of array (inner loop)
+        for (let j = i + 1; j < arr.length; j++) {
+            // if there's an element at index of j with a lower value than the element at the index of 'indexOfMin'
+            if (arr[j] < arr[indexOfMin]) {
+                // re-assign indexOfMin to the j element
+                indexOfMin = j
+            }
+        } 
+        // if the index of the i element and the index of 'indexOfMin' is not the same, swap the two values
+        if (i !== indexOfMin) {
+            let lesser = arr[indexOfMin]
+            arr[indexOfMin] = arr[i]
+            arr[i] = lesser
+        }
+    }
+    // return selection-sorted array outside of the outer for loop
+    return arr
 }
 
 function mergeSort(arr) {
