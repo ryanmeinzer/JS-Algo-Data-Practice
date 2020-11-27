@@ -32,13 +32,15 @@ class Node {
 
 }
 
+
+
 class Tree {
     // initialize root property of tree to be null
     constructor() {
         this.root = null
     }
 
-    traverseBF(fn) {
+    traverseBF(fn){
         // create an empty array
         // take root node and stick it at the start of array
         let workingArray = [this.root]
@@ -58,6 +60,7 @@ class Tree {
             // }
             // call function of traverse method with that node
             fn(node)
+            // console.log(node.data)
             // essentially, throw that node away (was done prior in first step of while loop)
         }
     }
