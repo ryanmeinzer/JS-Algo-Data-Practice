@@ -79,10 +79,6 @@ class Tree {
             // remove all children from that node's children array then add them to the START of the array
             // using spread operator to take every element from node's children array and push into the START of the array
             workingArray.unshift(...node.children)
-            // or:
-            // for (let child of node.children) {
-            //     workingArray.push(child)
-            // }
             // call function of traverse method with that node
             fn(node)
             // essentially, throw that node away (was done prior in first step of while loop)
