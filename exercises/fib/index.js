@@ -23,7 +23,7 @@
 //         value = results[i - 2] + results[i - 1]
 //         // push i into 'results'
 //         results.push(value)
-//         }
+//     }
 //     return results[n]  
 // }
 
@@ -52,7 +52,8 @@ function memoize(fn) {
     // make an anonymous function/version of the memoize function that will essentially be 'fib', accepting TBD array of arguments (via ES6)
     return function(...args) {
         // look at cache object and determine if the args key has been used in the function
-        if (cache[args]) {
+        if (args in cache) {
+        // if (cache[args]) {
             // if so, return
             return cache[args]
         }
@@ -60,6 +61,7 @@ function memoize(fn) {
         let result = fn.apply(this, args)
         // take result of calling our slowFib and store inside of cache object
         cache[args] = result
+        console.log(cache)
         // return result
         return result
     }
