@@ -61,3 +61,5 @@ class SinglyLinkedList {
 let list = new SinglyLinkedList()
 list.push("HELLO")
 list.push("GOODBYE")
+
+// starting other methods
