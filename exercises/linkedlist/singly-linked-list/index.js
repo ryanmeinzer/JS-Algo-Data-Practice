@@ -64,3 +64,4 @@ list.push("GOODBYE")
 
 // starting other methods
 // starting again from other computer
+// adding ssh for Macbook
