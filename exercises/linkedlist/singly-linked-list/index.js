@@ -63,3 +63,4 @@ list.push("HELLO")
 list.push("GOODBYE")
 
 // starting other methods
+// starting again from other computer
