@@ -89,9 +89,9 @@ class SinglyLinkedList {
         // return linked list
         return this
     }
-
+    // linked lists do not have indexes so have to traverse manually
     get(index) {
-        if (index < 0 || index >= this.list.length) return null
+        if (index < 0 || index >= this.length) return null
         let counter = 0
         let current = this.head
         while (counter !== index) {
@@ -100,6 +100,34 @@ class SinglyLinkedList {
         }
         return current
     }
+    set(index, value) {
+        //use get function to find node
+        // if node isn't found, return false
+        if (!this.get(index)) return false
+        // if node is found, set value and return true
+        this.get(index).val = value
+        return true
+    }
+    insert(index, value) {
+        if (index < 0 || index > this.length) return false
+        if (index === this.length) {
+            this.push(value)
+            return true
+        }
+        // doubly-negate to coerce to boolean for same return true as above
+        if (index === 0) return !!this.unshift(value)
+        // access node at the index - 1
+        let prevNode = this.get(index - 1)
+        let newNode = new Node(value)
+        // set the new node's next to the previous next
+        newNode.next = prevNode.next
+        // set that node's next to be new node
+        prevNode.next = newNode
+        // increment length
+        this.length++
+        return true
+    }
+
 
 
 
