@@ -31,7 +31,6 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
-
     pop() {
         // if no nodes in list, return undefined
         if (!this.head) return undefined
@@ -56,7 +55,6 @@ class SinglyLinkedList {
         // return value of node removed
         return current
     }
-
     shift() {
         // if no nodes, return undefined
         if (!this.head) return undefined
@@ -73,8 +71,24 @@ class SinglyLinkedList {
         // return value of removed node
         return removedHead
     }
-
-
+    unshift(value) {
+        // create new node using value
+        let newNode = new Node(value)
+        // if there's no head, set head and tail
+        if (!this.head) {
+            this.head = newNode
+            this.tail = newNode
+        } else {
+            // else, set new node's next to current head
+            newNode.next = this.head
+            // set head to new node
+            this.head = newNode
+        }
+        // increment length by one
+        this.length++
+        // return linked list
+        return this
+    }
 }
 
 let list = new SinglyLinkedList()
