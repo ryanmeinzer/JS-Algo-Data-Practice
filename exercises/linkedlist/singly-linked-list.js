@@ -17,7 +17,7 @@ class SinglyLinkedList {
     }
     push(val) {
         // create new node at end using value passed in
-        var newNode = new Node(val);
+        let newNode = new Node(val);
         // if there isn't a head, set the head and tail to be the newly created node
         if (!this.head) {
             this.head = newNode;
@@ -56,12 +56,29 @@ class SinglyLinkedList {
         // return value of node removed
         return current
     }
+
+    shift() {
+        // if no nodes, return undefined
+        if (!this.head) return undefined
+        // store current head as a variable
+        let removedHead = this.head
+        // set head to current head's next
+        this.head = removedHead.next
+        // decrement length by one
+        this.length--
+        // if list is empty
+        if (this.length === 0) {
+            this.tail = null
+        }
+        // return value of removed node
+        return removedHead
+    }
+
+
 }
 
 let list = new SinglyLinkedList()
 list.push("HELLO")
 list.push("GOODBYE")
+list.push("!")
 
-// starting other methods
-// finished SSH setup
-// continuing again
