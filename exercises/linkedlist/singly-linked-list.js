@@ -163,8 +163,6 @@ class SinglyLinkedList {
         }
         return this
     }
-
-
 }
 
 let list = new SinglyLinkedList()
