@@ -89,7 +89,7 @@ class SinglyLinkedList {
         // return linked list
         return this
     }
-    // linked lists do not have indexes so have to traverse manually
+    // linked lists do not have indexes so have to traverse manually for 0(n)
     get(index) {
         if (index < 0 || index >= this.length) return null
         let counter = 0
@@ -108,6 +108,7 @@ class SinglyLinkedList {
         this.get(index).val = value
         return true
     }
+    // 0(1)
     insert(index, value) {
         if (index < 0 || index > this.length) return false
         if (index === this.length) {
@@ -127,6 +128,7 @@ class SinglyLinkedList {
         this.length++
         return true
     }
+    // 0(1) if removing at beginning or otherwise 0(n)
     remove(index) {
         if (index < 0 || index >= this.length) return undefined
         if (index === this.length - 1) return this.pop()
