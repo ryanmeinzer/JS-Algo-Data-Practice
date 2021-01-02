@@ -141,7 +141,27 @@ class SinglyLinkedList {
     }
     // reverse the linked list in place
     reverse() {
-
+        // create 'current' variable starting at head
+        // swap head and tail
+        let current = this.head
+        this.head = this.tail
+        this.tail = current
+        // create 'prev' variable
+        let prev = null
+        // create 'next' variable
+        let next = null
+        // loop through list
+        for (let i = 0; i < this.length; i++) {
+            // set 'next' to be the next of 'current'
+            next = current.next
+            // set current.next to 'prev'
+            current.next = prev
+            // set 'prev' to 'current'
+            prev = current
+            // set 'current' to 'next'
+            current = next
+        }
+        return this
     }
 
 
