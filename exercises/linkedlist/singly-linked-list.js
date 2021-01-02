@@ -127,8 +127,22 @@ class SinglyLinkedList {
         this.length++
         return true
     }
+    remove(index) {
+        if (index < 0 || index >= this.length) return undefined
+        if (index === this.length - 1) return this.pop()
+        if (index === 0) return this.shift()
+        // access node at the index - 1
+        let prevNode = this.get(index - 1)
+        let deletedNode = this.get(index)
+        prevNode.next = deletedNode.next
+        // decrement length
+        this.length--
+        return deletedNode
+    }
+    // reverse the linked list in place
+    reverse() {
 
-
+    }
 
 
 }
