@@ -1,3 +1,13 @@
+// easiest way to create a LIFO stack with an array:
+let stack = []
+push(record) {
+    stack.push(record)
+}
+pop() {
+    stack.pop()
+}
+
+// creating LIFO stack from scratch with a singly linked list with constant time 0(1) for insertion and removal
 class Node {
     constructor(value) {
         this.value = value
