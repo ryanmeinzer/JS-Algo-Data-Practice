@@ -73,6 +73,7 @@ class DoublyLinkedList {
         this.length++
         return this
     }
+    // 0(n)
     get(index) {
         if (index < 0 || index >= this.length) return null
         let count = 0
@@ -99,6 +100,7 @@ class DoublyLinkedList {
         this.get(index).val = value
         return true
     }
+    // 0(1)
     insert(index, value) {
         if (index < 0 || index > this.length) return false
         if (index === this.length) return !!this.push(value)
@@ -113,19 +115,24 @@ class DoublyLinkedList {
         this.length++
         return true
     }
+    // always 0(1)
     remove(index) {
         if (index < 0 || index >= this.length) return undefined
         if (index === this.length - 1) return this.pop()
         if (index === 0) return this.shift()
-        let prevNode = this.get(index - 1)
         let removedNode = this.get(index)
-        prevNode.next = removedNode.next
+        let prevNode = this.get(index - 1)
+        let nextNode = prevNode.next
+        prevNode.next = nextNode
+        nextNode.prev = prevNode
+        // same as above:
+        // removedNode.prev.next = removedNode.next
+        // removedNode.next.prev = removedNode.prev
+        removedNode.next = null
+        removedNode.prev = null
         this.length--
         return removedNode
     }
-
-
-
 }
 let list = new DoublyLinkedList()
 list.push("HELLO")
