@@ -73,7 +73,7 @@ class DoublyLinkedList {
         this.length++
         return this
     }
-    // 0(n)
+    // 0(n), is faster than singly-linked-lists as it can be done in half the time
     get(index) {
         if (index < 0 || index >= this.length) return null
         let count = 0
