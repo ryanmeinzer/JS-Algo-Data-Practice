@@ -18,10 +18,10 @@ class Node {
         this.data = data
         this.left = null
         this.right = null
-    }    
+    }
 
     insert(data) {
-        // using recursion
+        // solved using recursion
         // call insert on root node
         // if the data is less than the root node AND if there's a left node
         if (data < this.data && this.left) {
@@ -31,7 +31,7 @@ class Node {
             // if not AND if there's not a left node
             // create new node and assign data to it
             this.left = new Node(data)
-        // repeat for right side only opposite
+            // repeat for right side only opposite
         } else if (data > this.data && this.right) {
             // delegate to and pass in data to the right
             return this.right.insert(data)
@@ -42,7 +42,7 @@ class Node {
         }
     }
 
-    contains(data){
+    contains(data) {
         // if node is equal to data
         if (this.data === data) {
             // return node
@@ -52,7 +52,7 @@ class Node {
         if (data < this.data && this.left) {
             // go left and see if it's equal through recursion
             return this.left.contains(data)
-        // else if data is greater than node
+            // else if data is greater than node
         } else if (data > this.data && this.right) {
             // go right and see if it's equal through recursion
             return this.right.contains(data)
@@ -60,6 +60,6 @@ class Node {
         // if cannot find value, return null
         return null
     }
-} 
+}
 
 module.exports = Node;
