@@ -1,7 +1,7 @@
 class Node {
     constructor(val) {
-        this.val = val;
-        this.next = null;
+        this.val = val
+        this.next = null
     }
 }
 
@@ -11,25 +11,25 @@ class Node {
 
 class SinglyLinkedList {
     constructor() {
-        this.head = null;
-        this.tail = null;
-        this.length = 0;
+        this.head = null
+        this.tail = null
+        this.length = 0
     }
     push(val) {
         // create new node at end using value passed in
-        let newNode = new Node(val);
+        let newNode = new Node(val)
         // if there isn't a head, set the head and tail to be the newly created node
         if (!this.head) {
-            this.head = newNode;
-            this.tail = this.head;
+            this.head = newNode
+            this.tail = this.head
             // else, set the next property on the tail to be the new node and set the tail to be the newly created node
         } else {
-            this.tail.next = newNode;
-            this.tail = newNode;
+            this.tail.next = newNode
+            this.tail = newNode
         }
         // inrement length
-        this.length++;
-        return this;
+        this.length++
+        return this
     }
     pop() {
         // if no nodes in list, return undefined
