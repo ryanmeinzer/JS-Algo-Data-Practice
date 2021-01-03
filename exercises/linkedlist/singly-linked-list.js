@@ -135,11 +135,11 @@ class SinglyLinkedList {
         if (index === 0) return this.shift()
         // access node at the index - 1
         let prevNode = this.get(index - 1)
-        let deletedNode = this.get(index)
-        prevNode.next = deletedNode.next
+        let removedNode = this.get(index)
+        prevNode.next = removedNode.next
         // decrement length
         this.length--
-        return deletedNode
+        return removedNode
     }
     // reverse the linked list in place
     reverse() {

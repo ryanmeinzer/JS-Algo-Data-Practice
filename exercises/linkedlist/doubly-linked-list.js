@@ -99,6 +99,32 @@ class DoublyLinkedList {
         this.get(index).val = value
         return true
     }
+    insert(index, value) {
+        if (index < 0 || index > this.length) return false
+        if (index === this.length) return !!this.push(value)
+        if (index === 0) return !!this.unshift(value)
+        let newNode = new Node(value)
+        let prevNode = this.get(index - 1)
+        let nextNode = prevNode.next
+        prevNode.next = newNode
+        newNode.prev = prevNode
+        newNode.next = nextNode
+        nextNode.prev = newNode
+        this.length++
+        return true
+    }
+    remove(index) {
+        if (index < 0 || index >= this.length) return undefined
+        if (index === this.length - 1) return this.pop()
+        if (index === 0) return this.shift()
+        let prevNode = this.get(index - 1)
+        let removedNode = this.get(index)
+        prevNode.next = removedNode.next
+        this.length--
+        return removedNode
+    }
+
+
 
 }
 let list = new DoublyLinkedList()
