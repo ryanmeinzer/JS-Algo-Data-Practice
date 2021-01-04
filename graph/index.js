@@ -89,6 +89,37 @@ class Graph {
         // console.log(result)
         return result
     }
+    BF(start) {
+        // accept a starting node
+        // create a queue and place starting node vertex in it
+        const queue = [start]
+        // create 'result' array to store the end result
+        const result = []
+        // create 'visited' object to store all vertices visited
+        const visited = {}
+        // mark start vertex as visited
+        visited[start] = true
+        // while the queue has anything in it
+        while (queue.length) {
+            // remove the first vertex from the queue and push it into visited
+            let currentVertex = queue.shift()
+            // add to result
+            result.push(currentVertex)
+            // loop over each vertex of adjacency list for the visited vertex
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                // if it's not been visited
+                if (!visited[neighbor]) {
+                    // mark as visited
+                    visited[neighbor] = true
+                    // enqueue the virtex
+                    queue.push(neighbor)
+                }
+            })
+        }
+        // console.log(result)
+        return result
+    }
+
 }
 
 let g = new Graph();
@@ -112,6 +143,8 @@ g.addEdge("E", "F")
 g.DFRecursive("A")
 
 g.DFIterative("A")
+
+g.BF("A")
 
 //          A
 //        /   \
