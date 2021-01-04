@@ -58,6 +58,35 @@ class Graph {
         }
         // invoke DFS helper function
         DFS(start)
+        // console.log(result)
+        return result
+    }
+    // accept a starting node (same results as DFRecursive, just in different order)
+    DFIterative(start) {
+        // create 'stack' to keep track of vertices, adding start vertex
+        const stack = [start]
+        // create 'result' array to store the end result
+        const result = []
+        // create 'visited' object to store all vertices visited
+        const visited = {}
+        // mark start vertex as visited
+        visited[start] = true
+        // while the stack has anything in it
+        while (stack.length) {
+            // pop the next vertex from the stack
+            let currentVertex = stack.pop()
+            // add to result
+            result.push(currentVertex)
+            this.adjacencyList[currentVertex].forEach(neighbor => {
+                if (!visited[neighbor]) {
+                    // mark as visited
+                    visited[neighbor] = true
+                    // add neighbor to stack
+                    stack.push(neighbor)
+                }
+            })
+        }
+        // console.log(result)
         return result
     }
 }
@@ -79,7 +108,10 @@ g.addEdge("C", "E")
 g.addEdge("D", "E")
 g.addEdge("D", "F")
 g.addEdge("E", "F")
+
 g.DFRecursive("A")
+
+g.DFIterative("A")
 
 //          A
 //        /   \
