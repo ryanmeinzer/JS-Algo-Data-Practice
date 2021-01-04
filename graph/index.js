@@ -86,6 +86,7 @@ class Graph {
                 }
             })
         }
+        // console.log(visited)
         // console.log(result)
         return result
     }
@@ -116,10 +117,10 @@ class Graph {
                 }
             })
         }
+        // console.log(visited)
         // console.log(result)
         return result
     }
-
 }
 
 let g = new Graph();
@@ -130,7 +131,6 @@ g.addVertex("C")
 g.addVertex("D")
 g.addVertex("E")
 g.addVertex("F")
-
 
 g.addEdge("A", "B")
 g.addEdge("A", "C")
