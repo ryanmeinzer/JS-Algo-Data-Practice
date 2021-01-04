@@ -1,9 +1,8 @@
-// improved hash function using prime to reduce collisions
+// improved hash function using prime to reduce collisions and with separate chaining to account for duplicates with 0(1) for insertion, deletion and accessing
 class HashTable {
     constructor(size = 53) {
         this.keyMap = new Array(size)
     }
-
     _hash(key) {
         let total = 0
         let WEIRD_PRIME = 31
@@ -42,6 +41,42 @@ class HashTable {
         }
         // if key isn't found, return undefined
         return undefined;
+    }
+    keys() {
+        // create an array to store all data
+        let keysArr = []
+        // loop over entire keyMap
+        for (let i = 0; i < this.keyMap.length; i++) {
+            // if there's something in the keyMap
+            if (this.keyMap[i]) {
+                // loop over each item of keyMap
+                for (let j = 0; j < this.keyMap[i].length; j++) {
+                    // handle/merge duplicates
+                    if (!keysArr.includes(this.keyMap[i][j][0])) {
+                        keysArr.push(this.keyMap[i][j][0])
+                    }
+                }
+            }
+        }
+        return keysArr
+    }
+    values() {
+        // create an array to store all data
+        let valuesArr = []
+        // loop over entire keyMap
+        for (let i = 0; i < this.keyMap.length; i++) {
+            // if there's something in the keyMap
+            if (this.keyMap[i]) {
+                // loop over each item of keyMap
+                for (let j = 0; j < this.keyMap[i].length; j++) {
+                    // handle/merge duplicates
+                    if (!valuesArr.includes(this.keyMap[i][j][1])) {
+                        valuesArr.push(this.keyMap[i][j][1])
+                    }
+                }
+            }
+        }
+        return valuesArr
     }
 }
 
