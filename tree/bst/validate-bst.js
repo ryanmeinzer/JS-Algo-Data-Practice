@@ -24,13 +24,13 @@ class Node {
 }
 
 // create root node
-let node = new Node(3)
+let root = new Node(3)
 let rootLeft = new Node(2)
 let rootRight = new Node(5)
-node.left = rootLeft
-node.right = rootRight
-node.left.left = new Node(1)
-node.left.right = new Node(4)
+root.left = rootLeft
+root.right = rootRight
+root.left.left = new Node(1)
+root.left.right = new Node(4)
 
 // let min = 0
 let min = -Infinity
@@ -47,4 +47,4 @@ function validate(node, min, max) {
     return true
 }
 
-validate(node, min, max)
+validate(root, min, max)
